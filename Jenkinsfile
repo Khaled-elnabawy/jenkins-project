@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "🔹 Checking out repository..."
-                git branch: 'master', url: 'https://github.com/Khaled-elnabawy/jenkins-project'
+                git branch: 'main', url: 'https://github.com/Khaled-elnabawy/jenkins-project'
             }
         }
 
