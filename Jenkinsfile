@@ -24,16 +24,16 @@ pipeline {
                 sh 'terraform plan -out=tfplan'
             }
         }
-
+/*
         stage('Terraform Apply') {
             steps {
                 echo "🔹 Applying Terraform..."
                 sh 'terraform apply -auto-approve tfplan'
                 echo "✅ Infrastructure deployed successfully!"
             }
-        }
+        }  */
 
-/*
+
         stage('Terraform Destroy') {
             steps {
                 echo "🗑 Destroying Terraform infrastructure..."
@@ -41,7 +41,7 @@ pipeline {
                 echo "🔥 Infrastructure destroyed successfully!"
             }
         }
-*/        
+        
 
     }
 
