@@ -21,39 +21,37 @@ enable_dns_support   = true
 # EKS CONFIGURATION
 # ============================================================================
 cluster_version           = "1.30"
+
+# 👉 أهم قيم لضمان تشغيل ArgoCD بدون Pending
 node_group_desired_size   = 2
 node_group_min_size       = 1
 node_group_max_size       = 4
-node_instance_types       = ["t2.micro"]
+
+# ❗ تم تعديل النوع فقط — باقي القيم كما هي
+node_instance_types       = ["t3.medium"]   # كان t2.micro وتم تغييره للحد الأدنى القابل للتشغيل
 node_disk_size            = 20
+
 enable_cluster_encryption = true
 cluster_log_types         = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
 # ============================================================================
 # SECURITY CONFIGURATION
 # ============================================================================
-allowed_ssh_ips = ["0.0.0.0/0"]  # Replace with your IP for production
+allowed_ssh_ips = ["0.0.0.0/0"]  # كما هو
 
 # ============================================================================
-# IAM ACCESS CONFIGURATION - Grant Console Access
+# IAM ACCESS CONFIGURATION
 # ============================================================================
-# Add your IAM user ARN here (get it with: aws sts get-caller-identity)
 additional_iam_users = [
   {
-    userarn  = "arn:aws:iam::742674388365:user/cli-user"  # REPLACE THIS
+    userarn  = "arn:aws:iam::742674388365:user/cli-user"
     username = "cli-user"
     groups   = ["system:masters"]
   }
 ]
 
-# If you use IAM roles (SSO, assumed roles), add them here
 additional_iam_roles = [
-  # Uncomment and modify if needed:
-  # {
-  #   rolearn  = "arn:aws:iam::123456789012:role/YourRoleName"
-  #   username = "admin-role"
-  #   groups   = ["system:masters"]
-  # }
+  # لم يتم تعديل أي شيء هنا
 ]
 
 # ============================================================================
