@@ -44,8 +44,8 @@ allowed_ssh_ips = ["0.0.0.0/0"]  # كما هو
 # ============================================================================
 additional_iam_users = [
   {
-    userarn  = "arn:aws:iam::742674388365:user/cli-user"
-    username = "cli-user"
+    userarn  = "arn:aws:iam::442956084249:user/jenkins-user"
+    username = "jenkins-user"
     groups   = ["system:masters"]
   }
 ]
